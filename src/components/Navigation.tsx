@@ -11,7 +11,7 @@ const links = [
   { href: "#couple", label: "Our Wedding" },
   { href: "#events", label: "Events" },
   { href: "#venue", label: "Venue" },
-  { href: "#gallery", label: "Gallery" },
+  // { href: "#gallery", label: "Gallery" },
   { href: "#wishes", label: "Wishes" },
 ];
 
@@ -66,69 +66,70 @@ export function Navigation() {
 
   return (
     <>
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-700 ${
-        solid
-          ? "bg-ivory/80 shadow-[0_1px_0_0_rgba(200,154,67,0.25)] backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
-    >
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-ivory focus:px-4 focus:py-2 focus:text-maroon"
-      >
-        Skip to content
-      </a>
-      <nav
-        aria-label="Primary"
-        className={`container-wedding flex items-center justify-between transition-[height] duration-500 ${
-          scrolled ? "h-16" : "h-20"
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-700 ${
+          solid
+            ? "bg-ivory/80 shadow-[0_1px_0_0_rgba(200,154,67,0.25)] backdrop-blur-xl"
+            : "bg-transparent"
         }`}
       >
         <a
-          href="#home"
-          aria-label="Abinesh and Deepika, back to top"
-          className={`transition-colors duration-500 ${solid ? "text-maroon" : "text-ivory"}`}
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-ivory focus:px-4 focus:py-2 focus:text-maroon"
         >
-          <Monogram className="h-11 w-10 text-lg" />
+          Skip to content
         </a>
-
-        <ul className="hidden items-center gap-9 lg:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                aria-current={active === l.href ? "true" : undefined}
-                className={`group relative py-2 font-display text-[1.15rem] transition-colors duration-500 ${
-                  solid ? "text-ink hover:text-maroon" : "text-ivory/90 hover:text-ivory"
-                }`}
-              >
-                {l.label}
-                <span
-                  aria-hidden
-                  className={`absolute -bottom-0.5 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-500 ${
-                    active === l.href ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <button
-          ref={toggleRef}
-          type="button"
-          className={`grid h-11 w-11 place-items-center lg:hidden ${solid ? "text-maroon" : "text-ivory"}`}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
+        <nav
+          aria-label="Primary"
+          className={`container-wedding flex items-center justify-between transition-[height] duration-500 ${
+            scrolled ? "h-16" : "h-20"
+          }`}
         >
-          {open ? <X strokeWidth={1.3} /> : <Menu strokeWidth={1.3} />}
-        </button>
-      </nav>
+          <a
+            href="#home"
+            aria-label="Abinesh and Deepika, back to top"
+            className={`transition-colors duration-500 ${solid ? "text-maroon" : "text-ivory"}`}
+          >
+            <Monogram className="h-11 w-10 text-lg" />
+          </a>
 
-    </header>
+          <ul className="hidden items-center gap-9 lg:flex">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  aria-current={active === l.href ? "true" : undefined}
+                  className={`group relative py-2 font-display text-[1.15rem] transition-colors duration-500 ${
+                    solid
+                      ? "text-ink hover:text-maroon"
+                      : "text-ivory/90 hover:text-ivory"
+                  }`}
+                >
+                  {l.label}
+                  <span
+                    aria-hidden
+                    className={`absolute -bottom-0.5 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-500 ${
+                      active === l.href ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            ref={toggleRef}
+            type="button"
+            className={`grid h-11 w-11 place-items-center lg:hidden ${solid ? "text-maroon" : "text-ivory"}`}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X strokeWidth={1.3} /> : <Menu strokeWidth={1.3} />}
+          </button>
+        </nav>
+      </header>
       <AnimatePresence>
         {open && (
           <motion.div

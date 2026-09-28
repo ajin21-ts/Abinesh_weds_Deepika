@@ -6,7 +6,7 @@ import { Countdown } from "@/components/Countdown";
 import { InvitationMessage } from "@/components/InvitationMessage";
 import { Events } from "@/components/Events";
 import { Venue } from "@/components/Venue";
-import { Gallery } from "@/components/Gallery";
+// import { Gallery } from "@/components/Gallery";
 import { FamilySection } from "@/components/FamilySection";
 import { WishesForm } from "@/components/WishesForm";
 import { Footer } from "@/components/Footer";
@@ -27,7 +27,7 @@ export default function HomePage() {
         <InvitationMessage />
         <Events />
         <Venue />
-        <Gallery />
+        {/* <Gallery /> */}
         <FamilySection />
         <WishesForm />
       </main>
